@@ -11,7 +11,6 @@ function App() {
             <label htmlFor="note" className='form-label'>Notes :</label>
             <input type='text' className='form-control' id='note' name='note' placeholder='Enter your notes'/>
             <br />
-            
             <button type='button' className='notesButton' id='myButton'>Add note</button>
           </div>
         </div>
