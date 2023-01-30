@@ -6,14 +6,17 @@ const pool = require("./db");
 app.use(cors());
 app.use(express.json());
 
+
 //ROUTES//
+
+//create a note
 
 app.post("/notes", async (req, res) => {
   try {
-    const { description } = req.body;
+    const { description, title } = req.body;
     const newNote = await pool.query(
-      "INSERT INTO notes (description) VALUES($1) RETURNING *",
-      [description]
+      "INSERT INTO notes (description, title) VALUES ($1, $2) RETURNING *",
+      [description, title]
     );
     res.json(newNote.rows[0]);
   } catch (err) {
@@ -21,7 +24,8 @@ app.post("/notes", async (req, res) => {
   }
 });
 
-//create a note
+//get a note
+
 
 app.get("/notes", async (req, res) => {
   try {
@@ -32,7 +36,6 @@ app.get("/notes", async (req, res) => {
   }
 });
 
-//get a note
 
 app.get("/notes/:id", async (req, res) => {
   try {
@@ -51,13 +54,13 @@ app.get("/notes/:id", async (req, res) => {
 app.put("/notes/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { description } = req.body;
+    const { description, title } = req.body;
     const updateNote = await pool.query(
-      "UPDATE notes SET description = $1 WHERE notes_id = $2",
-      [description, id]
+      "UPDATE notes SET description = $1, title = $2 WHERE notes_id = $3",
+      [description, title, id]
     );
     res.json("Note updated");
-  } catch (error) {
+  } catch (err) {
     console.error(err.message);
   }
 });

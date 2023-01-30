@@ -3,6 +3,17 @@ body {
   padding: 0;
 }
 
+.container{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(44, 57, 84);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -29,15 +40,6 @@ body {
   color: black;
 }
 
-.mainpage{
-  width: 100vw;
-  height: 100vh;
-  background-color: rgb(44, 57, 84);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 #note{
   width: 30vw;
 }
@@ -54,4 +56,11 @@ body {
   margin: 1vh;
   display: flex;
   align-items: flex-start;
+}
+
+.notescontainer{
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  z-index: 10;
 }
