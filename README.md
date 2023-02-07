@@ -24,8 +24,8 @@ npm i pg
 Postgresql duhet te jet e instaluar si program ne pc
 
 Per hapjet e application ekzekuto komandat e meposhtme ne terminal
-
 -
+
 cd client
 npm start
 
